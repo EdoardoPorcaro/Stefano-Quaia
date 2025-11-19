@@ -1,0 +1,244 @@
+/* reset utile */
+*,
+*::before,
+*::after {
+    /* Include padding e border nella width/height */
+    box-sizing: border-box;
+}
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------- DEFINIZIONE VARIABILI ------------------------ */
+/* ------------------------------------------------------------------------ */
+:root {
+    /* Dimensioni */
+    --padding: 10px;
+    --body-padding: 10px;
+    --default-border-radius: 20px;
+    --flex-gap: 20px;
+    --raise-on-hover: -4px;
+
+    /* Breakpoint */
+    /* Variabili non usate nel codice perché CSS non supporta l'uso di      */
+    /* variabili nei media query. */
+    --mobile-breakpoint: 480px;   /* Sotto a questa soglia è considerato telefono */
+                                  /* Tra queste due soglie è considerato tablet */
+    --desktop-breakpoint: 1024px; /* Sopra questa soglia è considerato desktop */
+
+    /* Colori e trasparenze */
+    --transparency: 0.5;
+    --blur: 4px;
+    --palette-0: 3, 4, 94; /* più scuro */
+    --palette-1: 2, 62, 138;
+    --palette-2: 0, 119, 182;
+    --palette-3: 0, 150, 199;
+    --palette-4: 0, 180, 216;
+    --palette-5: 72, 202, 228;
+    --palette-6: 144, 224, 239;
+    --palette-7: 173, 232, 244;
+    --palette-8: 202, 240, 248; /* più chiaro */
+
+    /* Sfondi e immagini */
+    --hero-background-image: url('foto-1.jpg');
+}
+@media (max-width: 480px) {
+    :root {
+        --body-padding: 5px;
+    }
+}
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ */
+/* ----------------------- IMPOSTAZIONI PREDEFINITE ----------------------- */
+/* ------------------------------------------------------------------------ */
+html {
+    margin: 0px;
+    padding: 0px;
+    
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth; /* smooth snapping when user navigates */
+    /* reserve space for any page padding when snapping */
+    /* scroll-margin-top: var(--body-padding); */
+    scroll-snap-stop: always;
+}
+
+body {
+    /* Il body non ha margine ma ha un padding globale uguale a --padding */
+    /* Inoltre, non ha dimensione fissa                                       */
+    /* Si dichiarano solo il font globale e il colore di sfondo globale       */
+    
+    margin: 0;
+    padding: var(--body-padding);
+    /* width: calc(100% - 2*var(--body-padding)); */
+    color: rgb(var(--palette-1));
+    background: rgb(var(--palette-8));
+    font-family: "Fira Sans", sans-serif;
+    font-size: 20px;
+}
+
+section {
+    /* display: flow-root; */
+    position: relative;
+
+    /* Questo padding */
+    padding: calc(2*var(--padding));
+
+    width: 100%;
+    height: calc(100svh - 2*var(--body-padding));
+    
+    /* snap to the start of each section for predictable page-by-page scrolling */
+    scroll-snap-align: center;
+
+    border: 1px solid red;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+} h1 {
+    font-size: 50px;
+    font-style: italic;
+    line-height: 1.2;
+}
+
+p {
+    margin:0px;
+    padding: 0pt;
+}
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ */
+/* ----------------------------- LINK PULSANTE ---------------------------- */
+/* ------------------------------------------------------------------------ */
+a.pulsante {
+    display: inline-block;
+    padding: calc(1.5*var(--padding)) calc(3*var(--padding));
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: var(--default-border-radius);
+    backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante */
+    -webkit-backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante (versione per Safari) */
+    transition:
+            background-color 0.3s ease,
+            color 0.3s ease,
+            border-color 0.3s ease,
+            transform 0.2s ease;
+} a.pulsante:hover {
+    transform: translateY(var(--raise-on-hover));
+}
+
+/* Pulsante su SFONDO SCURO */
+a.pulsante.sfondo-scuro {
+    color: rgb(var(--palette-8));
+    border: 1px solid rgb(var(--palette-8));
+} a.pulsante.sfondo-scuro:hover {
+    color: rgb(var(--palette-1));
+    background-color: rgb(var(--palette-8));
+}
+
+/* Pulsante PRIMARIO su sfondo scuro  */
+a.pulsante.sfondo-scuro.primario {
+    color: rgb(var(--palette-1));
+    background-color: rgb(var(--palette-8));
+} a.pulsante.sfondo-scuro.primario:hover {
+    background-color: transparent;
+    color: rgb(var(--palette-8));
+}
+
+/* Pulsante su SFONDO CHIARO */
+a.pulsante.sfondo-chiaro {
+    color: rgb(var(--palette-1));
+    border: 1px solid rgb(var(--palette-1));
+} a.pulsante.sfondo-chiaro:hover {
+    color: rgb(var(--palette-8));
+    background-color: rgb(var(--palette-1));
+}
+
+/* Pulsante PRIMARIO su sfondo chiaro  */
+a.pulsante.sfondo-chiaro.primario {
+    color: rgb(var(--palette-8));
+    background-color: rgb(var(--palette-1));
+} a.pulsante.sfondo-chiaro.primario:hover {
+    background-color: transparent;
+    color: rgb(var(--palette-1));
+}
+/* ------------------------------------------------------------------------ */
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------- CLASSI PERSONALIZZATE ------------------------ */
+/* ------------------------------------------------------------------------ */
+.solo-mobile {
+    display: revert;
+}
+
+@media (min-width: 1024px) {
+    .solo-mobile {
+        display: none !important;
+    }
+}
+
+.spazio {
+    height: 0px;
+}
+.spazio.h10 { height: 10px; }
+.spazio.h20 { height: 20px; }
+.spazio.h30 { height: 30px; }
+.spazio.h40 { height: 40px; }
+.spazio.h50 { height: 50px; }
+.spazio.h100 { height: 100px; }
+.spazio.h120 { height: 120px; }
+.spazio.h200 { height: 200px; }
+
+.hero-home {
+    background: radial-gradient(circle at 0% 100%, rgba(var(--palette-1), var(--transparency)), transparent), var(--hero-background-image) no-repeat center 30%/cover;
+    border-radius: var(--default-border-radius);
+}
+@media (max-width: 480px) {
+    .hero-home {
+        background: linear-gradient(to top, rgba(var(--palette-1), calc(var(--transparency)*1.2)), transparent), var(--hero-background-image) no-repeat center -100%/cover;
+    }
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--flex-gap);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding: calc(2*var(--padding));
+    max-width: 500px;
+    color: rgb(var(--palette-8));
+} @media (min-width: 1024px) {
+    .hero-content p {
+        margin-bottom: 10px;
+    }
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--flex-gap);
+    row-gap: calc(var(--flex-gap)/2);
+    width: 100%;
+}
+
+.hero-buttons a {
+    flex: 1;
+}
+
+
+.footer {
+    margin: 0 calc(-1*var(--body-padding)) calc(-1*var(--body-padding)) calc(-1*var(--body-padding));
+    padding: 60px 0;
+    color: rgb(var(--palette-8));
+    text-align: center;
+    background: radial-gradient(circle at 0% 100%, rgb(var(--palette-1)), rgb(var(--palette-2)));
+    border-top-left-radius: var(--default-border-radius);
+    border-top-right-radius: var(--default-border-radius);;
+}
+/* ------------------------------------------------------------------------ */
