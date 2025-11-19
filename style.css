@@ -209,7 +209,7 @@ a.pulsante.sfondo-chiaro.primario {
 }
 @media (max-width: 480px) {
     .hero-home {
-        background: linear-gradient(to top, rgba(var(--palette-1), calc(var(--transparency)*1.2)), transparent), var(--hero-background-image-phone) no-repeat center -100%/cover;
+        background: linear-gradient(to top, rgba(var(--palette-1), calc(var(--transparency)*1.2)), transparent), var(--hero-background-image-phone) no-repeat center top/cover;
     }
 }
 
