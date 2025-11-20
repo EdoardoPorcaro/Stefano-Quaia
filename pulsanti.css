@@ -1,0 +1,58 @@
+/* ------------------------------------------------------------------------ */
+/* ----------------------------- LINK PULSANTE ---------------------------- */
+/* ------------------------------------------------------------------------ */
+
+a.pulsante {
+    display: inline-block;
+    padding: calc(1.5*var(--padding)) calc(3*var(--padding));
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: var(--default-border-radius);
+    -webkit-backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante (versione per Safari) */
+    backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante */
+    transition:
+        transform 0.2s ease,
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease;
+} a.pulsante:hover {
+    transform: translateY(var(--raise-on-hover));
+}
+
+/* Pulsante su SFONDO SCURO */
+a.pulsante.sfondo-scuro {
+    color: rgb(var(--palette-8));
+    border: 1px solid rgb(var(--palette-8));
+} a.pulsante.sfondo-scuro:hover {
+    color: rgb(var(--palette-1));
+    background-color: rgb(var(--palette-8));
+}
+
+/* Pulsante PRIMARIO su sfondo scuro  */
+a.pulsante.sfondo-scuro.primario {
+    color: rgb(var(--palette-1));
+    background-color: rgb(var(--palette-8));
+} a.pulsante.sfondo-scuro.primario:hover {
+    background-color: transparent;
+    color: rgb(var(--palette-8));
+}
+
+/* Pulsante su SFONDO CHIARO */
+a.pulsante.sfondo-chiaro {
+    color: rgb(var(--palette-1));
+    border: 1px solid rgb(var(--palette-1));
+} a.pulsante.sfondo-chiaro:hover {
+    color: rgb(var(--palette-8));
+    background-color: rgb(var(--palette-1));
+}
+
+/* Pulsante PRIMARIO su sfondo chiaro  */
+a.pulsante.sfondo-chiaro.primario {
+    color: rgb(var(--palette-8));
+    background-color: rgb(var(--palette-1));
+} a.pulsante.sfondo-chiaro.primario:hover {
+    background-color: transparent;
+    color: rgb(var(--palette-1));
+}
+/* ------------------------------------------------------------------------ */

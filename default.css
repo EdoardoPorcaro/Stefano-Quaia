@@ -11,8 +11,10 @@
 /* ------------------------------------------------------------------------ */
 :root {
     /* Dimensioni */
-    --padding: 10px;
     --body-padding: 10px;
+    --padding: 10px;
+    --div-max-width: 1000px;
+    --text-div-max-width: 600px;
     --default-border-radius: 20px;
     --flex-gap: 20px;
     --raise-on-hover: -4px;
@@ -38,9 +40,9 @@
     --palette-8: 202, 240, 248; /* più chiaro */
 
     /* Sfondi e immagini */
-    --hero-background-image: url('foto-1.jpg');
-    --hero-background-image-phone: url('foto-1-cut.jpg');
-    --foto-studio: url('foto-4.jpg');
+    --hero-background-image: url('foto-1.webp');
+    --hero-background-image-phone: url('foto-1-cut.webp');
+    --foto-studio: url('foto-4.webp');
 }
 @media (max-width: 480px) {
     :root {
@@ -76,16 +78,6 @@ body {
     background: rgb(var(--palette-8));
 }
 
-section {
-    position: relative;
-    width: 100%;
-    height: calc(100dvh - 2*var(--body-padding));
-    max-width: 1000px;
-    /* padding: calc(2*var(--padding)); */
-    border-radius: var(--default-border-radius);
-    scroll-snap-align: center; /* Indica che il punto di allineamento per lo snap scroll è il centro di ciascuna section */
-}
-
 h1, h2, h3 {
     margin: 0;
     font-family: "Libre Baskerville", serif;
@@ -104,64 +96,6 @@ h1, h2, h3 {
 p {
     margin:0px;
     padding: 0pt;
-}
-/* ------------------------------------------------------------------------ */
-
-/* ------------------------------------------------------------------------ */
-/* ----------------------------- LINK PULSANTE ---------------------------- */
-/* ------------------------------------------------------------------------ */
-a.pulsante {
-    display: inline-block;
-    padding: calc(1.5*var(--padding)) calc(3*var(--padding));
-    text-align: center;
-    text-decoration: none;
-    background-color: transparent;
-    border-radius: var(--default-border-radius);
-    backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante */
-    -webkit-backdrop-filter: blur(var(--blur)); /* Sfoca il contenuto sottostante (versione per Safari) */
-    transition:
-            background-color 0.3s ease,
-            color 0.3s ease,
-            border-color 0.3s ease,
-            transform 0.2s ease;
-} a.pulsante:hover {
-    transform: translateY(var(--raise-on-hover));
-}
-
-/* Pulsante su SFONDO SCURO */
-a.pulsante.sfondo-scuro {
-    color: rgb(var(--palette-8));
-    border: 1px solid rgb(var(--palette-8));
-} a.pulsante.sfondo-scuro:hover {
-    color: rgb(var(--palette-1));
-    background-color: rgb(var(--palette-8));
-}
-
-/* Pulsante PRIMARIO su sfondo scuro  */
-a.pulsante.sfondo-scuro.primario {
-    color: rgb(var(--palette-1));
-    background-color: rgb(var(--palette-8));
-} a.pulsante.sfondo-scuro.primario:hover {
-    background-color: transparent;
-    color: rgb(var(--palette-8));
-}
-
-/* Pulsante su SFONDO CHIARO */
-a.pulsante.sfondo-chiaro {
-    color: rgb(var(--palette-1));
-    border: 1px solid rgb(var(--palette-1));
-} a.pulsante.sfondo-chiaro:hover {
-    color: rgb(var(--palette-8));
-    background-color: rgb(var(--palette-1));
-}
-
-/* Pulsante PRIMARIO su sfondo chiaro  */
-a.pulsante.sfondo-chiaro.primario {
-    color: rgb(var(--palette-8));
-    background-color: rgb(var(--palette-1));
-} a.pulsante.sfondo-chiaro.primario:hover {
-    background-color: transparent;
-    color: rgb(var(--palette-1));
 }
 /* ------------------------------------------------------------------------ */
 
@@ -190,9 +124,16 @@ a.pulsante.sfondo-chiaro.primario {
 /* ------------------------------------------------------------------------ */
 /* ----------------------- SEZIONI  E LORO CONTENUTO ---------------------- */
 /* ------------------------------------------------------------------------ */
-/* Sezione con sfondo (non ha larghezza massima) */
-section.sezione-con-sfondo {
-    max-width: none;
+
+/* Qualsiasi sezione */
+section {
+    position: relative;
+    width: 100%;
+    height: calc(100dvh - 2*var(--body-padding));
+    /* max-width: 1000px; */
+    /* padding: calc(2*var(--padding)); */
+    border-radius: var(--default-border-radius);
+    scroll-snap-align: center; /* Indica che il punto di allineamento per lo snap scroll è il centro di ciascuna section */
 }
 
 /* Sezione della home*/
@@ -205,79 +146,9 @@ section.home {
 }
 
 /* Sezione del footer */
-
-div.hero-content {
-    display: flex;
-    flex-direction: column;
-    row-gap: var(--flex-gap);
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    padding: calc(2*var(--padding));
-    max-width: 500px;
-    color: rgb(var(--palette-8));
-} @media (min-width: 1024px) {
-    .hero-content p {
-        margin-bottom: 10px;
-    }
-}
-
-div.hero-buttons {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    column-gap: var(--flex-gap);
-    row-gap: calc(var(--flex-gap)/2);
-    width: 100%;
-} .hero-buttons a {
-    flex: 1;
-}
-
-section.lo-studio {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 50px;
-    margin: auto;
-    text-align: center;
-} section.lo-studio > .testo {
-    display: inherit;
-    flex-direction: inherit;
-    flex-direction: inherit;
-    justify-content: inherit;
-    align-items: inherit;
-    row-gap: inherit;
-    max-width: 600px;
-} section.lo-studio > .lista-trattamenti {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--flex-gap);
-} section.lo-studio > .lista-trattamenti > .trattamento {
-    flex: 1;
-    /* padding: 0 var(--padding) var(--padding) var(--padding); */
-    min-width: 200px;
-    border: 1px solid rgb(var(--palette-2));
-    border-radius: var(--default-border-radius);
-} section.lo-studio > .lista-trattamenti > .trattamento > h2 {
-    padding: var(--padding) 0;
-    /* min-width: 200px; */
-    color: rgb(var(--palette-7));
-    /* font-family: 'Fira Sans', sans-serif; */
-    font-size: 20px;
-    font-style: italic;
-    background: rgb(var(--palette-1));
-    border: 1px solid rgb(var(--palette-2));
-    border-radius: var(--default-border-radius);
-} section.lo-studio > .lista-trattamenti > .trattamento > p {
-    padding: var(--padding);
-    font-size: 16px;
-}
-
 section.footer {
     background: radial-gradient(circle at 0% 100%, rgb(var(--palette-1)), rgb(var(--palette-2)));
-} section.footer > .contenuto {
+} section.footer > div.contenuto {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -291,4 +162,62 @@ section.footer {
     color: rgb(var(--palette-8));
     text-align: center;
 }
-/* ------------------------------------------------------------------------ */  
+
+/* div.hero-content {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--flex-gap);
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    padding: calc(2*var(--padding));
+    max-width: 500px;
+    color: rgb(var(--palette-8));
+} @media (min-width: 1024px) {
+    .hero-content p {
+        margin-bottom: 10px;
+    }
+} */
+
+section.trattamenti {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    margin: auto;
+    text-align: center;
+} section.trattamenti > .testo {
+    display: inherit;
+    flex-direction: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    row-gap: inherit;
+    max-width: 600px;
+} section.trattamenti > .lista-trattamenti {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--flex-gap);
+} section.trattamenti > .lista-trattamenti > .trattamento {
+    flex: 1;
+    /* padding: 0 var(--padding) var(--padding) var(--padding); */
+    min-width: 200px;
+    border: 1px solid rgb(var(--palette-2));
+    border-radius: var(--default-border-radius);
+} section.trattamenti > .lista-trattamenti > .trattamento > h2 {
+    padding: var(--padding) 0;
+    /* min-width: 200px; */
+    color: rgb(var(--palette-7));
+    /* font-family: 'Fira Sans', sans-serif; */
+    font-size: 20px;
+    font-style: italic;
+    background: rgb(var(--palette-1));
+    border: 1px solid rgb(var(--palette-2));
+    border-radius: var(--default-border-radius);
+} section.trattamenti > .lista-trattamenti > .trattamento > p {
+    padding: var(--padding);
+    font-size: 16px;
+}
+/* ------------------------------------------------------------------------ */

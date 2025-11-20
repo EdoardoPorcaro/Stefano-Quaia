@@ -2,15 +2,25 @@
 <html lang="it">
 
 <head>
+    <!-- Impostazioni di codifica e viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Descrizione della pagina per i motori di ricerca.">
-    <meta name="author" content="Il tuo nome">
-
+    
+    <!-- Titolo della pagina e informazioni metadati (non OpenGraph)-->
     <title>Stefano Quaia</title>
+    <meta name="author" content="Il tuo nome">
+    <meta name="description" content="Descrizione della pagina per i motori di ricerca.">
+    <link rel="canonical" href="https://stefanoquaia.com/">
 
-    <!-- Collegamento al file CSS -->
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Collegamento ai fogli di stile CSS -->
+    <link rel="stylesheet" href="default.css"> <!-- Variabili e dichiarazioni globali per i tag -->
+    <link rel="stylesheet" href="sezioni.css"> <!-- Stili per le sezioni -->
+    <link rel="stylesheet" href="vflex-hflex.css"> <!-- Stili per i contenuti delle sezioni -->
+    <link rel="stylesheet" href="pulsanti.css"> <!-- Stili per i pulsanti -->
+    
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
     <!-- Font (da Google Fonts) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,10 +30,8 @@
     <!-- Libre Baskerville (titoli)--> <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Prata&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
     <!-- Fira Sans (paragrafi)--> <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Prata&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
-    <!-- Favicon (opzionale) -->
-    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
-    <!-- Open Graph (per condivisioni social) -->
+    <!-- Metadati Open Graph (per condivisioni social) -->
     <!-- <meta property="og:title" content="Titolo della Pagina"> -->
     <!-- <meta property="og:description" content="Breve descrizione della pagina."> -->
     <!-- <meta property="og:type" content="website"> -->
@@ -31,57 +39,59 @@
 </head>
 
 <body>
-    <section class="sezione-con-sfondo home">
-        <div class="hero-content">
+    <section class="home">
+        <div class="vflex home">
             <h1>Piacere,<br />Stefano Quaia!</h1>
             <p>Questo è solo un testo segnaposto. Non allarmarti, è qui solo per riempire lo spazio poiché il tuo testo definitivo non
             è ancora pronto.</p>
-            <div class="hero-buttons">
+            <div class="hflex">
                 <a href="#trattamenti" class="pulsante sfondo-scuro primario">Trattamenti</a>
-                <a href="#" class="pulsante sfondo-scuro">Contatta</a>
+                <a href="#" class="pulsante sfondo-scuro">Contattami</a>
                 <!-- <a href="tel:+39331760602" class="pulsante sfondo-scuro solo-mobile">Chiama</a> -->
             </div>
         </div>
     </section>
 
-    <section class="lo-studio" id="trattamenti">
-        <div class="testo">
-            <h1>Lo studio</h1>
-            <p>Tradizionalmente il nostro settore ha utilizzato Lorem Ipsum, che è un testo segnaposto scritto in latino.
-                Sfortunatamente, non tutti hanno familiarità con Lorem Ipsum e questo può creare confusione. Non so dirti quante volte i
-                clienti mi hanno chiesto perché il loro sito web è in un’altra lingua!</p>
-        </div>
-        <div class="lista-trattamenti">
-            <div class="trattamento">
-                <h2>Trattamento 1</h2>
-                <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
-                confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
-                formattata oggi sul web.</p>
+    <section class="trattamenti" id="trattamenti">
+        <div class="contenuto">
+            <div class="testo">
+                <h1>Lo studio</h1>
+                <p>Tradizionalmente il nostro settore ha utilizzato Lorem Ipsum, che è un testo segnaposto scritto in latino.
+                    Sfortunatamente, non tutti hanno familiarità con Lorem Ipsum e questo può creare confusione. Non so dirti quante volte i
+                    clienti mi hanno chiesto perché il loro sito web è in un’altra lingua!</p>
             </div>
-            <div class="trattamento">
-                <h2>Trattamento 2</h2>
-                <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
-                confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
-                formattata oggi sul web.</p>
-            </div>
-            <div class="trattamento">
-                <h2>Trattamento 3</h2>
-                <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
-                confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
-                formattata oggi sul web.</p>
+            <div class="lista-trattamenti" style="display:none;">
+                <div class="trattamento">
+                    <h2>Trattamento 1</h2>
+                    <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
+                    confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
+                    formattata oggi sul web.</p>
+                </div>
+                <div class="trattamento">
+                    <h2>Trattamento 2</h2>
+                    <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
+                    confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
+                    formattata oggi sul web.</p>
+                </div>
+                <div class="trattamento">
+                    <h2>Trattamento 3</h2>
+                    <p>Se sei curioso, questo è Website Ipsum. È stato sviluppato specificamente per l’uso su siti Web di sviluppo. Oltre a
+                    confondere meno di altri Ipsum, Website Ipsum è anche formattato con schemi più simili a come il testo reale è
+                    formattata oggi sul web.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <section><h1>Lo studio</h1></section>
 
-    <section class="sezione-con-sfondo footer">
-        <div class="contenuto">
+    <section class="footer">
+        <div class="vflex footer">
             <h1>Grazie per la visita!</h1>
             <p>Spero che i miei serivizi possano tornarti utili presto!<br />Se avessi ancora bisogno, ecco dei collegamenti rapidi.</p>
-            <div style="max-width:1000px;" class="hero-buttons">
+            <div class="hflex">
                 <a href="#trattamenti" class="pulsante sfondo-scuro">Trattamenti</a>
-                <a href="#" class="pulsante sfondo-scuro">Contatta</a>
+                <a href="#" class="pulsante sfondo-scuro">Contattami</a>
                 <a href="tel:+39331760602" class="pulsante sfondo-scuro">Direzioni</a>
             </div>
         </div>
