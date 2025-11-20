@@ -40,6 +40,7 @@
     /* Sfondi e immagini */
     --hero-background-image: url('foto-1.jpg');
     --hero-background-image-phone: url('foto-1-cut.jpg');
+    --foto-studio: url('foto-4.jpg');
 }
 @media (max-width: 480px) {
     :root {
@@ -55,42 +56,34 @@ html {
     margin: 0px;
     padding: 0px;
     
+    /* Qui si dichiarano le caratteristiche che fanno sì che il sito sia    */
+    /* consultabile a mo' di "reel Instagram".                              */
     overflow: auto;
     scroll-snap-type: y mandatory;
-    scroll-behavior: smooth; /* smooth snapping when user navigates */
-    /* reserve space for any page padding when snapping */
-    scroll-margin: var(--body-padding);
+    scroll-behavior: smooth;
     scroll-snap-stop: always;
 }
 
 body {
-    /* Il body non ha margine ma ha un padding globale uguale a --padding */
-    /* Inoltre, non ha dimensione fissa                                       */
-    /* Si dichiarano solo il font globale e il colore di sfondo globale       */
-    
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--body-padding);
     margin: 0;
     padding: var(--body-padding);
-    /* width: calc(100% - 2*var(--body-padding)); */
     color: rgb(var(--palette-1));
-    background: rgb(var(--palette-8));
     font-family: "Fira Sans", sans-serif;
     font-size: 20px;
+    background: rgb(var(--palette-8));
 }
 
 section {
-    /* display: flow-root; */
     position: relative;
-
-    /* Questo padding */
-    padding: calc(2*var(--padding));
-
     width: 100%;
     height: calc(100dvh - 2*var(--body-padding));
-    
-    /* snap to the start of each section for predictable page-by-page scrolling */
-    scroll-snap-align: center;
-
-    border: 1px solid red;
+    max-width: 1000px;
+    /* padding: calc(2*var(--padding)); */
+    border-radius: var(--default-border-radius);
+    scroll-snap-align: center; /* Indica che il punto di allineamento per lo snap scroll è il centro di ciascuna section */
 }
 
 h1, h2, h3 {
@@ -173,8 +166,9 @@ a.pulsante.sfondo-chiaro.primario {
 /* ------------------------------------------------------------------------ */
 
 /* ------------------------------------------------------------------------ */
-/* ------------------------- CLASSI PERSONALIZZATE ------------------------ */
+/* --------------------- REGOLE PER LA VISUALIZZAZIONE -------------------- */
 /* ------------------------------------------------------------------------ */
+/* Elemento visibile solo su dispositivi mobili */
 .solo-mobile {
     display: revert;
 } @media (min-width: 1024px) {
@@ -183,6 +177,7 @@ a.pulsante.sfondo-chiaro.primario {
     }
 }
 
+/* Elemento visibile solo su computer */
 .solo-desktop {
     display: none;
 } @media (min-width: 1024px) {
@@ -190,30 +185,28 @@ a.pulsante.sfondo-chiaro.primario {
         display: revert !important;
     }
 }
+/* ------------------------------------------------------------------------ */
 
-.spazio {
-    height: 0px;
+/* ------------------------------------------------------------------------ */
+/* ----------------------- SEZIONI  E LORO CONTENUTO ---------------------- */
+/* ------------------------------------------------------------------------ */
+/* Sezione con sfondo (non ha larghezza massima) */
+section.sezione-con-sfondo {
+    max-width: none;
 }
-.spazio.h10 { height: 10px; }
-.spazio.h20 { height: 20px; }
-.spazio.h30 { height: 30px; }
-.spazio.h40 { height: 40px; }
-.spazio.h50 { height: 50px; }
-.spazio.h100 { height: 100px; }
-.spazio.h120 { height: 120px; }
-.spazio.h200 { height: 200px; }
 
-.hero-home {
+/* Sezione della home*/
+section.home {
     background: radial-gradient(circle at 0% 100%, rgba(var(--palette-1), var(--transparency)), transparent), var(--hero-background-image) no-repeat center 30%/cover;
-    border-radius: var(--default-border-radius);
-}
-@media (max-width: 480px) {
-    .hero-home {
+} @media (max-width: 480px) {
+    section.home {
         background: linear-gradient(to top, rgba(var(--palette-1), calc(var(--transparency)*1.2)), transparent), var(--hero-background-image-phone) no-repeat center top/cover;
     }
 }
 
-.hero-content {
+/* Sezione del footer */
+
+div.hero-content {
     display: flex;
     flex-direction: column;
     row-gap: var(--flex-gap);
@@ -229,27 +222,73 @@ a.pulsante.sfondo-chiaro.primario {
     }
 }
 
-.hero-buttons {
+div.hero-buttons {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     column-gap: var(--flex-gap);
     row-gap: calc(var(--flex-gap)/2);
     width: 100%;
-}
-
-.hero-buttons a {
+} .hero-buttons a {
     flex: 1;
 }
 
+section.lo-studio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 50px;
+    margin: auto;
+    text-align: center;
+} section.lo-studio > .testo {
+    display: inherit;
+    flex-direction: inherit;
+    flex-direction: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    row-gap: inherit;
+    max-width: 600px;
+} section.lo-studio > .lista-trattamenti {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--flex-gap);
+} section.lo-studio > .lista-trattamenti > .trattamento {
+    flex: 1;
+    /* padding: 0 var(--padding) var(--padding) var(--padding); */
+    min-width: 200px;
+    border: 1px solid rgb(var(--palette-2));
+    border-radius: var(--default-border-radius);
+} section.lo-studio > .lista-trattamenti > .trattamento > h2 {
+    padding: var(--padding) 0;
+    /* min-width: 200px; */
+    color: rgb(var(--palette-7));
+    /* font-family: 'Fira Sans', sans-serif; */
+    font-size: 20px;
+    font-style: italic;
+    background: rgb(var(--palette-1));
+    border: 1px solid rgb(var(--palette-2));
+    border-radius: var(--default-border-radius);
+} section.lo-studio > .lista-trattamenti > .trattamento > p {
+    padding: var(--padding);
+    font-size: 16px;
+}
 
-.footer {
-    margin: 0 calc(-1*var(--body-padding)) calc(-1*var(--body-padding)) calc(-1*var(--body-padding));
-    padding: 60px 0;
+section.footer {
+    background: radial-gradient(circle at 0% 100%, rgb(var(--palette-1)), rgb(var(--palette-2)));
+} section.footer > .contenuto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: calc(var(--flex-gap)*1.5);
+    position: relative;
+    margin: auto;
+    padding: var(--padding);
+    height: 100%;
+    max-width: 600px;
     color: rgb(var(--palette-8));
     text-align: center;
-    background: radial-gradient(circle at 0% 100%, rgb(var(--palette-1)), rgb(var(--palette-2)));
-    border-top-left-radius: var(--default-border-radius);
-    border-top-right-radius: var(--default-border-radius);;
 }
-/* ------------------------------------------------------------------------ */
+/* ------------------------------------------------------------------------ */  
