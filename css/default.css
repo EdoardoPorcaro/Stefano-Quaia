@@ -1,0 +1,131 @@
+/* ------------------------------------------------------------------------ */
+/* -------------------- IMPOSTAZIONI GLOBALI BOX-SIZING ------------------- */
+/* ------------------------------------------------------------------------ */
+*,
+*::before,
+*::after {
+    /* Include padding e border nella width/height */
+    box-sizing: border-box;
+}
+/* ------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------- DEFINIZIONE VARIABILI ------------------------ */
+/* ------------------------------------------------------------------------ */
+:root {
+    /* Dimensioni */
+    --body-padding: 10px;
+    --padding: 10px;
+    --div-max-width: 1000px;
+    --text-div-max-width: 600px;
+    --default-border-radius: 20px;
+    --flex-gap: 20px;
+    --raise-on-hover: -4px;
+
+    /* Breakpoint */
+    /* Variabili non usate nel codice perché CSS non supporta l'uso di      */
+    /* variabili nei media query. */
+    --mobile-breakpoint: 480px;   /* Sotto a questa soglia è considerato telefono */
+                                  /* Tra queste due soglie è considerato tablet */
+    --desktop-breakpoint: 1024px; /* Sopra questa soglia è considerato desktop */
+
+    /* Colori e trasparenze */
+    --transparency: 0.5;
+    --blur: 4px;
+    --palette-0: 3, 4, 94; /* più scuro */
+    --palette-1: 2, 62, 138;
+    --palette-2: 0, 119, 182;
+    --palette-3: 0, 150, 199;
+    --palette-4: 0, 180, 216;
+    --palette-5: 72, 202, 228;
+    --palette-6: 144, 224, 239;
+    --palette-7: 173, 232, 244;
+    --palette-8: 202, 240, 248; /* più chiaro */
+
+    /* Sfondi e immagini */
+    --hero-background-image: url('../src/foto-1.webp');
+    --hero-background-image-phone: url('../src/foto-1-cut.webp');
+    --foto-studio: url('../src/foto-4.webp');
+}
+@media (max-width: 480px) {
+    :root {
+        --body-padding: 5px;
+    }
+}
+/* ------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ----------------------- IMPOSTAZIONI PREDEFINITE ----------------------- */
+/* ------------------------------------------------------------------------ */
+html {
+    margin: 0px;
+    padding: 0px;
+    
+    /* Qui si dichiarano le caratteristiche che fanno sì che il sito sia    */
+    /* consultabile a mo' di "reel Instagram".                              */
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    scroll-snap-stop: always;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--body-padding);
+    margin: 0;
+    padding: var(--body-padding);
+    color: rgb(var(--palette-1));
+    font-family: "Fira Sans", sans-serif;
+    font-size: 20px;
+    background: rgb(var(--palette-8));
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-family: "Libre Baskerville", serif;
+    font-weight: 400;
+    font-style: normal;
+} h1 {
+    font-size: 50px;
+    font-style: italic;
+    line-height: 1.2;
+} @media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+    }
+}
+
+p {
+    margin:0px;
+    padding: 0pt;
+}
+/* ------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------ */
+/* --------------------- REGOLE PER LA VISUALIZZAZIONE -------------------- */
+/* ------------------------------------------------------------------------ */
+/* Elemento visibile solo su dispositivi mobili */
+.solo-mobile {
+    display: revert;
+} @media (min-width: 1024px) {
+    .solo-mobile {
+        display: none !important;
+    }
+}
+
+/* Elemento visibile solo su computer */
+.solo-desktop {
+    display: none;
+} @media (min-width: 1024px) {
+    .solo-desktop {
+        display: revert !important;
+    }
+}
+/* ------------------------------------------------------------------------ */
