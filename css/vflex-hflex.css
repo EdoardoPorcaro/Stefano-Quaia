@@ -5,26 +5,21 @@ div.vflex {
     gap: var(--flex-gap);
     padding: calc(2*var(--padding));
     height: 100%;
-    /* max-width: var(--div-max-width); */
     max-width: var(--text-div-max-width);
-} div.vflex.home {
+} div.vflex.home { /* Con caratteristiche per il contenuto della scheda home */
     position: absolute;
     bottom: 0;
     left: 0;
     height: auto;
     color: rgb(var(--palette-8));
-} div.vflex.trattamenti {
-
-} div.vflex.footer {
+} div.vflex.centrato { /* Con caratteristiche specifiche affinché tutto il contenuto della scheda sia centrato */
     justify-content: center;
     align-items: center;
-    /* gap: calc(var(--flex-gap)*1.5); */
     position: relative;
     margin: auto;
-    /* padding: var(--padding); */
-    /* max-width: 600px; */
-    color: rgb(var(--palette-8));
     text-align: center;
+} div.vflex.centrato.scuro { /* Con caratteristiche specifiche per i div centrati su sfondo scuro */
+    color: rgb(var(--palette-8));
 }
 
 /* HORIZONTAL FLEX */
@@ -38,4 +33,18 @@ div.hflex {
     max-width: var(--div-max-width);
 } div.hflex > a {
     flex: 1;
+}
+
+div.griglia {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 colonne uguali */
+    grid-template-rows: repeat(2, 1fr); /* 3 righe uguali   */
+    /* width: 300px; dimensione della griglia */
+    /* height: 300px; per rendere le celle quadrate */
+    gap: calc(var(--flex-gap)*2);
+}
+
+span.evidenziato {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
 }
