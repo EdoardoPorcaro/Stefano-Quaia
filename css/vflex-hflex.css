@@ -1,0 +1,41 @@
+/* VERTICAL FLEX */
+div.vflex {
+    display: flex;
+    flex-direction: column;
+    gap: var(--flex-gap);
+    padding: calc(2*var(--padding));
+    height: 100%;
+    /* max-width: var(--div-max-width); */
+    max-width: var(--text-div-max-width);
+} div.vflex.home {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: auto;
+    color: rgb(var(--palette-8));
+} div.vflex.trattamenti {
+
+} div.vflex.footer {
+    justify-content: center;
+    align-items: center;
+    /* gap: calc(var(--flex-gap)*1.5); */
+    position: relative;
+    margin: auto;
+    /* padding: var(--padding); */
+    /* max-width: 600px; */
+    color: rgb(var(--palette-8));
+    text-align: center;
+}
+
+/* HORIZONTAL FLEX */
+div.hflex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    column-gap: var(--flex-gap);
+    row-gap: calc(var(--flex-gap)/2);
+    /* width: fit-content; */
+    max-width: var(--div-max-width);
+} div.hflex > a {
+    flex: 1;
+}
