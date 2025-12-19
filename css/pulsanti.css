@@ -3,7 +3,9 @@
 /* ------------------------------------------------------------------------ */
 
 a.pulsante {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: calc(1.5*var(--padding)) calc(3*var(--padding));
     text-align: center;
     text-decoration: none;
@@ -28,7 +30,6 @@ a.pulsante.sfondo-scuro {
     color: rgb(var(--palette-1));
     background-color: rgb(var(--palette-8));
 }
-
 /* Pulsante PRIMARIO su sfondo scuro  */
 a.pulsante.sfondo-scuro.primario {
     color: rgb(var(--palette-1));
@@ -46,7 +47,6 @@ a.pulsante.sfondo-chiaro {
     color: rgb(var(--palette-8));
     background-color: rgb(var(--palette-1));
 }
-
 /* Pulsante PRIMARIO su sfondo chiaro  */
 a.pulsante.sfondo-chiaro.primario {
     color: rgb(var(--palette-8));
@@ -56,4 +56,3 @@ a.pulsante.sfondo-chiaro.primario {
     color: rgb(var(--palette-1));
 }
 /* ------------------------------------------------------------------------ */
-/**/

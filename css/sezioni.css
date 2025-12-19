@@ -1,5 +1,5 @@
 /* ------------------------------------------------------------------------ */
-/* ----------------------- SEZIONI  E LORO CONTENUTO ---------------------- */
+/* -------------------------- STILI DELLE SECTION ------------------------- */
 /* ------------------------------------------------------------------------ */
 
 /* Qualsiasi sezione */
@@ -18,6 +18,20 @@ section.home {
     section.home {
         background: linear-gradient(to top, rgba(var(--palette-1), calc(var(--transparency)*1.2)), transparent), var(--hero-background-image-phone) no-repeat center top/cover;
     }
+}
+
+/* Sezione "Una valutazione. Una direzione" */
+section.una-valutazione-una-direzione {
+    background:
+        linear-gradient(rgba(var(--palette-8), 0.8), rgba(var(--palette-8), 0.8)),
+        url('../src/bg1.webp') no-repeat center center/cover;
+}
+
+/* Sezione "Perché questo approccio?" */
+section.perché-questo-approccio {
+    background:
+        linear-gradient(rgba(var(--palette-8), 0.9), rgba(var(--palette-8), 0.9)),
+        url('../src/bg2.webp') no-repeat center center/cover;
 }
 
 /* Sezione del footer */

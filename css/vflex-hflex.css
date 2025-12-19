@@ -1,3 +1,8 @@
+/* ------------------------------------------------------------------------ */
+/* -------------------------- STILI DI DIV E SPAN ------------------------- */
+/* ------------------------------------------------------------------------ */
+
+
 /* VERTICAL FLEX */
 div.vflex {
     display: flex;
@@ -35,6 +40,8 @@ div.hflex {
     flex: 1;
 }
 
+/* GRIGLIA */
+/* Deprecato, da rimuovere */
 div.griglia {
     display: grid;
     grid-template-columns: repeat(4, 1fr); /* 3 colonne uguali */
@@ -44,7 +51,22 @@ div.griglia {
     gap: calc(var(--flex-gap)*2);
 }
 
-span.evidenziato {
+/* SPAN (enfasi, evidenziato e sottolineato) */
+span.enfasi {
     font-family: 'Libre Baskerville', serif;
     font-style: italic;
+}
+span.evidenziato {
+    background-color: rgb(var(--palette-1));
+    color: rgb(var(--palette-8));
+    padding: 0 0.2em;
+}
+span.sottolineato {
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.15em;
+    text-decoration-skip-ink: auto;
+}
+span.grassetto {
+    font-weight: 600;
 }
