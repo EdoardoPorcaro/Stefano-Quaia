@@ -20,6 +20,13 @@ section.home {
     }
 }
 
+/* Sezione "Indice" */
+section.indice {
+    background:
+            linear-gradient(rgba(var(--palette-8), 0.8), rgba(var(--palette-8), 0.8)),
+            url('../src/bg3.webp') no-repeat center center/cover;
+}
+
 /* Sezione "Una valutazione. Una direzione" */
 section.una-valutazione-una-direzione {
     background:

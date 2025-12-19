@@ -25,6 +25,8 @@ div.vflex {
     text-align: center;
 } div.vflex.centrato.scuro { /* Con caratteristiche specifiche per i div centrati su sfondo scuro */
     color: rgb(var(--palette-8));
+} div.vflex.indice { /* Senza altezza stabilita, per le righe di pulsanti nella scheda "Indice" */
+    height: auto;
 }
 
 /* HORIZONTAL FLEX */
