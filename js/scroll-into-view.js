@@ -11,21 +11,11 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 // Seleziona tutti gli h1, h2, p
-const textElements = document.querySelectorAll('h1, h2, p');
+const elementi = document.querySelectorAll('h1, h2, p, div.pulsanti');
 
-// Seleziona tutti i pulsanti a
-const buttons = document.querySelectorAll('a');
-
-// Animazione per testi con ritardo progressivo
-textElements.forEach((el, i) => {
+// Animazione con ritardo progressivo
+elementi.forEach((el, i) => {
     el.classList.add('slide-in');
-    el.style.transitionDelay = `${i * 0.2 + 0}s`; // 0s delay iniziale
-    observer.observe(el);
-});
-
-// Animazione per pulsanti: partire tutti dopo i testi
-buttons.forEach((el, i) => {
-    el.classList.add('slide-in');
-    el.style.transitionDelay = `${textElements.length * 0.2 + 0.5}s`; // delay fisso dopo i testi
+    el.style.transitionDelay = `${i * 0.2 + 0}s`; // 0s di ritardo iniziale
     observer.observe(el);
 });
