@@ -23,21 +23,21 @@ section.home {
 /* Sezione "Indice" */
 section.indice {
     background:
-            linear-gradient(rgba(var(--palette-8), 0.85), rgba(var(--palette-8), 0.85)),
+            linear-gradient(rgba(var(--palette-8), 0.9), rgba(var(--palette-8), 0.9)),
             url('../src/bg3.webp') no-repeat center center/cover;
 }
 
 /* Sezione "Una valutazione. Una direzione" */
 section.una-valutazione-una-direzione {
     background:
-        linear-gradient(rgba(var(--palette-8), 0.85), rgba(var(--palette-8), 0.85)),
+        linear-gradient(rgba(var(--palette-8), 0.9), rgba(var(--palette-8), 0.9)),
         url('../src/bg1.webp') no-repeat center center/cover;
 }
 
 /* Sezione "Perché questo approccio?" */
 section.perché-questo-approccio {
     background:
-        linear-gradient(rgba(var(--palette-8), 0.85), rgba(var(--palette-8), 0.85)),
+        linear-gradient(rgba(var(--palette-8), 0.9), rgba(var(--palette-8), 0.9)),
         url('../src/bg2.webp') no-repeat center center/cover;
 }
 
