@@ -136,3 +136,25 @@ p {
     }
 }
 /* ------------------------------------------------------------------------ */
+
+
+
+/* ------------------------------------------------------------------------ */
+/* ------------------------ EFFETTO SLIDE INTO VIEW ----------------------- */
+/* ------------------------------------------------------------------------ */
+/* Stato iniziale: elementi nascosti e leggermente spostati a sinistra */
+.slide-in {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+/* Stato finale: elementi visibili e in posizione naturale */
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+    /*transition-delay: 0.5s;*/
+}
+/* ------------------------------------------------------------------------ */
